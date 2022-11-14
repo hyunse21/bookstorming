@@ -3,6 +3,7 @@
     package="edu.sungshin.bookstorming">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".Apptest"
@@ -11,49 +12,36 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.Bookstorming">
+        android:theme="@style/Theme.Bookstorming"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".DetailActivity"
+            android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".TabHostActivity"></activity>
+        <activity android:name=".RealReviewActivity"></activity>
         <activity
-            android:name=".RegisterActivity"
-            />
-        <activity
-            android:name=".MainActivity"
-            >
+            android:name=".LoginActivity2"
+            android:exported="true"></activity>
+        <activity android:name=".ChatActivity_review" />
+        <activity android:name=".StartActivity_review" />
+        <activity android:name=".ChatActivity" />
+        <activity android:name=".StartActivity" />
+        <activity android:name=".RegisterActivity2" />
+        <activity android:name=".GalleryActivity"
+            android:exported="true">
         </activity>
-        <activity
-            android:name=".TabHostActivity"
-            >
-        </activity>
-        <activity
-            android:name=".RealReviewActivity"
-            >
-        </activity>
-
-        <activity android:name=".LoginActivity2"
-            android:exported="true"
-            >
-
-
-
-        </activity>
-        <activity android:name=".ChatActivity_review"
-            />
-        <activity android:name=".StartActivity_review"
-            />
-        <activity android:name=".ChatActivity"/>
-        <activity android:name=".StartActivity"
-
-            />
-        <activity android:name=".RegisterActivity2"/>
     </application>
 
 </manifest>

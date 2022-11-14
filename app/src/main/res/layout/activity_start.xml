@@ -38,6 +38,12 @@
                 android:gravity="center"
                 android:layout_marginBottom="20dp"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="유저 아이디"
+                />
+
             <EditText
                 android:id="@+id/user_edit"
                 android:layout_width="300dp"
