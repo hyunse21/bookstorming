@@ -51,7 +51,6 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
             @Override
             public void onClick(View view) {
 
-
                 String tv_tt=holder.tv_tt.getText().toString();
                 String tv_dp=holder.tv_dp.getText().toString();
                 String tv_dt=holder.tv_dt.getText().toString();

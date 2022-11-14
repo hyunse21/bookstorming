@@ -2,6 +2,7 @@ package edu.sungshin.bookstorming;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -42,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        searchAnimal();
+
 
         recyclerView=findViewById(R.id.recyclerVies);
         recyclerView.setHasFixedSize(true);
@@ -75,6 +78,32 @@ public class MainActivity extends AppCompatActivity {
         adapter = new BookAdapter(arrayList,this);
         recyclerView.setAdapter(adapter);//리사이클러 뷰에 어댑터 연결
 
+
+    }
+    private void searchAnimal(){
+
+        SearchView searchView=findViewById(R.id.animal_search_view);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                ArrayList<item> filterAnimal=new ArrayList<>();
+                for(int i=0;i<arrayList.size();i++){
+                    item item=arrayList.get(i);
+
+                    if(item.getTitle().toLowerCase().contains(newText.toLowerCase())){
+                        filterAnimal.add(item);
+                    }
+                }
+                BookAdapter adapter=new BookAdapter(filterAnimal,getApplicationContext());
+                recyclerView.setAdapter(adapter);
+                return false;
+            }
+        });
 
     }
 

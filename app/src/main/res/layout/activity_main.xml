@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/animal_search_view"
-        app:queryHint="동물이름을 입력하세요"
+        app:queryHint="책 이름을 입력하세요"
         />
 
 
