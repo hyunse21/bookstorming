@@ -44,6 +44,19 @@ public class RegisterActivity extends AppCompatActivity {
                 String userName=et_name.getText().toString();
                 int userAge=Integer.parseInt(et_age.getText().toString());
 
+                if((userID.equals(""))||(userPass.equals(""))||(userName.equals(""))) {
+                    Toast.makeText(getApplicationContext(), "모두 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(btn_check.getText().equals("중복확인")){
+                    Toast.makeText(getApplicationContext(), "아이디 중복을 확인해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+
+                }
+
+
+
                 Response.Listener<String> responseListener=new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -55,8 +68,10 @@ public class RegisterActivity extends AppCompatActivity {
                                 Intent intent=new Intent(RegisterActivity.this,LoginActivity.class);
                                 startActivity(intent);
                             }else{
-                                Toast.makeText(getApplicationContext(),"회원등록에 실패하였습니다.",Toast.LENGTH_SHORT).show();
-                                return;
+
+                                    Toast.makeText(getApplicationContext(), "회원등록에 실패하였습니다.", Toast.LENGTH_SHORT).show();
+                                    return;
+
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
