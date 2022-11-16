@@ -27,7 +27,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class StartActivity extends AppCompatActivity {
 
-
     private EditText user_chat, user_edit;
     private Button user_next;
     private ListView chat_list;
