@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--디자인 수정-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    android:layout_height="match_parent">
+    <!--    tools:context="bookstorming.cookandroid.template.LoginActivity"-->
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logo_text"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
 
     <EditText
@@ -13,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="220dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:ems="10"
@@ -21,14 +32,18 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColorHint="#3f6149"
+        android:backgroundTint="#3f6149"
+        android:textSize="18dp"/>
+
     <EditText
         android:id="@+id/et_pass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:ems="10"
@@ -36,8 +51,12 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="@+id/et_id"
         app:layout_constraintStart_toStartOf="@+id/et_id"
-        app:layout_constraintTop_toBottomOf="@+id/et_id"/>
-    <Button
+        app:layout_constraintTop_toBottomOf="@+id/et_id"
+        android:textColorHint="#3f6149"
+        android:backgroundTint="#3f6149"
+        android:textSize="18dp"/>
+
+    <android.widget.Button
         android:id="@+id/btn_login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -45,15 +64,24 @@
         android:text="로그인"
         app:layout_constraintEnd_toEndOf="@+id/et_pass"
         app:layout_constraintStart_toStartOf="@+id/et_pass"
-        app:layout_constraintTop_toBottomOf="@+id/et_pass"/>
-    <Button
+        app:layout_constraintTop_toBottomOf="@+id/et_pass"
+        android:textColor="#fff"
+        android:textSize="17dp"
+        android:background="@drawable/rounded"
+        android:backgroundTint="#756855"/>
+
+    <android.widget.Button
         android:id="@+id/btn_register"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="15dp"
         android:text="회원가입"
         app:layout_constraintEnd_toEndOf="@+id/btn_login"
         app:layout_constraintStart_toStartOf="@+id/btn_login"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login"/>
+        app:layout_constraintTop_toBottomOf="@+id/btn_login"
+        android:textColor="#fff"
+        android:textSize="17dp"
+        android:background="@drawable/rounded"
+        android:backgroundTint="#756855"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
