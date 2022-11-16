@@ -39,6 +39,7 @@ public class StartActivity_review extends AppCompatActivity {
         user_next = (Button) findViewById(R.id.user_next);
         chat_list = (ListView) findViewById(R.id.chat_list);
 
+
         intent=getIntent();
         user_chat_str=intent.getStringExtra("tv_tt");
         user_chat.setText(user_chat_str);
