@@ -66,6 +66,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         holder.tv_dp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String tv_tt=holder.tv_tt.getText().toString();
                 String tv_dp=holder.tv_dp.getText().toString();
                 String tv_dt=holder.tv_dt.getText().toString();
@@ -92,7 +93,6 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         TextView tv_dp;
         TextView tv_dt;
         Button btn_review;
-
 
         public BookViewHolder(@NonNull View itemView){
             super(itemView);
