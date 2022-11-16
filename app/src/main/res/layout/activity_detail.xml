@@ -1,19 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailActivity">
+    android:layout_margin="16dp"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/animal_detail_name"
-        android:layout_marginLeft="20dp"
-        android:text="동물이름"
-        android:textColor="@color/purple_200"
-        android:textSize="50sp"
-        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
 
-</RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/tv_tt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="title"
+                android:layout_margin="5dp"/>
+            <TextView
+                android:id="@+id/tv_dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="description"
+                android:layout_margin="5dp"/>
+            <TextView
+                android:id="@+id/tv_dt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="pubDate"
+                android:layout_margin="5dp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            >
+
+            <Button
+                android:background="@drawable/rounded"
+                android:layout_margin="5dp"
+                android:layout_gravity="bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="토론하러 가기"
+                android:id="@+id/btn_review"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

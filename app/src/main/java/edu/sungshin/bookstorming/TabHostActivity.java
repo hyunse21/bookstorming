@@ -3,7 +3,13 @@ package edu.sungshin.bookstorming;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.TabHost;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 
 @SuppressWarnings("deprecation")
@@ -47,7 +53,7 @@ public class TabHostActivity extends TabActivity {
 
 
 //탭에서 액티비티를 사용할 수 있도록 인텐트 생성
-        intent = new Intent().setClass(this, MainActivity.class);
+        intent = new Intent().setClass(this, GalleryActivity.class);
         spec = tabHost.newTabSpec("Together_home"); // 객체를 생성
         spec.setIndicator("나의책방"); //탭의 이름 설정
         spec.setContent(intent);
@@ -59,6 +65,29 @@ public class TabHostActivity extends TabActivity {
 
 
     }
+
+   // @Override
+    //public boolean onCreateOptionsMenu(Menu menu) {
+      //  MenuInflater inflater=getMenuInflater();
+        //inflater.inflate(R.menu.menu_option,menu);
+       // return true;
+    //}
+
+   // @Override
+    //public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+     //   switch (item.getItemId()) {
+      //      case R.id.menu1:
+       //         Toast.makeText(this, "라이트모드 선택", Toast.LENGTH_SHORT).show();
+
+                //break;
+
+            //case R.id.menu2:
+              //  Toast.makeText(this, "다크모드 선택", Toast.LENGTH_SHORT).show();
+                //break;
+        //}
+        //return super.onOptionsItemSelected(item);
+
+    //}
 
 
 }

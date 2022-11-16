@@ -42,6 +42,11 @@ public class RegisterActivity extends AppCompatActivity {
                 String userID=et_id.getText().toString();
                 String userPass=et_pass.getText().toString();
                 String userName=et_name.getText().toString();
+                String checkage= et_age.getText().toString();
+                if(checkage.equals("")){
+                    Toast.makeText(getApplicationContext(), "모두 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 int userAge=Integer.parseInt(et_age.getText().toString());
 
                 if((userID.equals(""))||(userPass.equals(""))||(userName.equals(""))) {

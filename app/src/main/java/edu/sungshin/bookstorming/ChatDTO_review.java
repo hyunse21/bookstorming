@@ -25,5 +25,6 @@ public class ChatDTO_review {
     public String getMessage() {
         return message;
     }
+
 }
 

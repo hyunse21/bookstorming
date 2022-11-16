@@ -34,8 +34,6 @@ public class StartActivity_review extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_review);
 
-
-
         user_chat = (EditText) findViewById(R.id.user_chat);
         user_edit = (EditText) findViewById(R.id.user_edit);
         user_next = (Button) findViewById(R.id.user_next);

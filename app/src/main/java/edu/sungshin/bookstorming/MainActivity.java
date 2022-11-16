@@ -39,12 +39,17 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
 
+    Button btn_review;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        btn_review=findViewById(R.id.btn_review);
+
         searchAnimal();
+        setUpList();
 
 
         recyclerView=findViewById(R.id.recyclerVies);
@@ -105,6 +110,12 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+    }
+    private void setUpList(){
+        recyclerView=findViewById(R.id.recyclerVies);
+        BookAdapter adapter= new BookAdapter(arrayList,getApplicationContext());
+        recyclerView.setAdapter(adapter);
 
     }
 

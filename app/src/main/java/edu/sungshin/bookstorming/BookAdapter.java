@@ -16,15 +16,15 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder>{
+public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder> {
 
 
     private ArrayList<item> arrayList;
     private Context context;
 
 
-
     public BookAdapter(ArrayList<item> arrayList, Context context) {
+        super();
         this.arrayList = arrayList;
         this.context=context;
     }
@@ -33,7 +33,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
     @NonNull
     @Override
-    public BookViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public BookAdapter.BookViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item,parent,false);
         BookViewHolder holder =new BookViewHolder(view);
 
@@ -41,7 +41,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
     }
 
     @Override//imageview불러오기
-    public void onBindViewHolder(@NonNull BookViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull BookAdapter.BookViewHolder holder, int position) {
 
         Glide.with(holder.itemView).load(arrayList.get(position).getProfile()).into(holder.tv_profile);
         holder.tv_tt.setText(arrayList.get(position).getTitle());
@@ -63,8 +63,21 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
             }
         });
 
+        holder.tv_dp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String tv_tt=holder.tv_tt.getText().toString();
+                String tv_dp=holder.tv_dp.getText().toString();
+                String tv_dt=holder.tv_dt.getText().toString();
+                Intent intent;
+                intent = new Intent(context,DetailActivity.class);
+                intent.putExtra("tv_tt",tv_tt);
+                intent.putExtra("tv_dp",tv_dp);
+                intent.putExtra("tv_dt",tv_dt);
+                ((MainActivity)context).startActivity(intent);
 
-
+            }
+        });
 
     }
 
@@ -89,9 +102,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
             this.tv_dt=itemView.findViewById(R.id.tv_dt);
             this.btn_review=itemView.findViewById(R.id.btn_review);
 
-
         }
-
 
     }
 }
