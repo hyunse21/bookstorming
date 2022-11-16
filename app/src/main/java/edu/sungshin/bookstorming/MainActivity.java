@@ -39,6 +39,41 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
 
+    private static final String TAG = "MainActivity";
+    String themeColor;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu_option,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu1:
+                Toast.makeText(this, "라이트모드 선택", Toast.LENGTH_SHORT).show();
+                themeColor = ThemeUtil.LIGHT_MODE;
+                //themeColor = ThemeUtil.modLoad(getApplicationContext());
+                ThemeUtil.applyTheme(themeColor);
+                ThemeUtil.modSave(getApplicationContext(), themeColor);
+                return true;
+
+            case R.id.menu2:
+                Toast.makeText(this, "다크모드 선택", Toast.LENGTH_SHORT).show();
+                themeColor = ThemeUtil.DARK_MODE;
+                //themeColor = ThemeUtil.modLoad(getApplicationContext());
+                ThemeUtil.applyTheme(themeColor);
+                ThemeUtil.modSave(getApplicationContext(), themeColor);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+
+
     Button btn_review;
 
     @Override
@@ -120,28 +155,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.menu_option,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu1:
-                Toast.makeText(this, "라이트모드 선택", Toast.LENGTH_SHORT).show();
-
-                break;
-
-            case R.id.menu2:
-                Toast.makeText(this, "다크모드 선택", Toast.LENGTH_SHORT).show();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-
-    }
 
 
 

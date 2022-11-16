@@ -5,7 +5,7 @@
 
     <item
         android:id="@+id/menu1"
-        android:title="라이트 모드"
+        android:title="토론방 라이트 모드"
         app:showAsAction="never"
         >
 
@@ -13,7 +13,7 @@
 
     <item
         android:id="@+id/menu2"
-        android:title="다크모드"
+        android:title="토론방 다크모드"
         app:showAsAction="never"
         >
 
