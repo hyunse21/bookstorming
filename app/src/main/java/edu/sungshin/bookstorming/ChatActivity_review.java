@@ -24,6 +24,7 @@ public class ChatActivity_review extends AppCompatActivity {
 
     private String CHAT_NAME;
     private String USER_NAME;
+    private String TIME;
 
     private ListView chat_view;
     private EditText chat_edit;
@@ -67,7 +68,8 @@ public class ChatActivity_review extends AppCompatActivity {
                         sb.insert(15 * i, "\n");
                     }
                 }
-                ChatDTO_review chat = new ChatDTO_review(USER_NAME, chat_edit.getText().toString()+"     "+timeNow.format(today)); //ChatDTO를 이용하여 데이터를 묶는다.
+
+                ChatDTO_review chat = new ChatDTO_review(USER_NAME, chat_edit.getText().toString()+"     "+timeNow.format(today).toString()); //ChatDTO를 이용하여 데이터를 묶는다.
                 databaseReference.child("chat").child(CHAT_NAME).push().setValue(chat); // 데이터 푸쉬
                 chat_edit.setText(""); //입력창 초기화
 

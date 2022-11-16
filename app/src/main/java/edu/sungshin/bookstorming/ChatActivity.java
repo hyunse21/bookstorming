@@ -67,7 +67,7 @@ public class ChatActivity extends AppCompatActivity {
                         sb.insert(15 * i, "\n");
                     }
                 }
-                ChatDTO chat = new ChatDTO(USER_NAME, chat_edit.getText().toString()+"     "+timeNow.format(today)); //ChatDTO를 이용하여 데이터를 묶는다.
+                ChatDTO chat = new ChatDTO(USER_NAME, chat_edit.getText().toString()+"      "+timeNow.format(today)); //ChatDTO를 이용하여 데이터를 묶는다.
                 databaseReference.child("realchat").child(CHAT_NAME).push().setValue(chat); // 데이터 푸쉬
                 chat_edit.setText(""); //입력창 초기화
 

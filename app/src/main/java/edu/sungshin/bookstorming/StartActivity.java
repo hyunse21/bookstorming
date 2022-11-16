@@ -5,13 +5,18 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.ChildEventListener;
@@ -21,6 +26,40 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class StartActivity extends AppCompatActivity {
+
+
+    String themeColor;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu_option,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu1:
+                Toast.makeText(this, "라이트모드 선택", Toast.LENGTH_SHORT).show();
+                themeColor = ThemeUtil.LIGHT_MODE;
+                //themeColor = ThemeUtil.modLoad(getApplicationContext());
+                ThemeUtil.applyTheme(themeColor);
+                ThemeUtil.modSave(getApplicationContext(), themeColor);
+                return true;
+
+            case R.id.menu2:
+                Toast.makeText(this, "다크모드 선택", Toast.LENGTH_SHORT).show();
+                themeColor = ThemeUtil.DARK_MODE;
+                //themeColor = ThemeUtil.modLoad(getApplicationContext());
+                ThemeUtil.applyTheme(themeColor);
+                ThemeUtil.modSave(getApplicationContext(), themeColor);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
 
     private EditText user_chat, user_edit;
     private Button user_next;

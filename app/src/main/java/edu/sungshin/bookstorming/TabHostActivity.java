@@ -16,7 +16,6 @@ import androidx.annotation.NonNull;
 public class TabHostActivity extends TabActivity {
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,35 +58,10 @@ public class TabHostActivity extends TabActivity {
         spec.setContent(intent);
         tabHost.addTab(spec);
 
-
-
         tabHost.setCurrentTab(0); //먼저 열릴 탭을 선택! (2)로 해두면 그룹이 시작 화면!
-
 
     }
 
-   // @Override
-    //public boolean onCreateOptionsMenu(Menu menu) {
-      //  MenuInflater inflater=getMenuInflater();
-        //inflater.inflate(R.menu.menu_option,menu);
-       // return true;
-    //}
-
-   // @Override
-    //public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-     //   switch (item.getItemId()) {
-      //      case R.id.menu1:
-       //         Toast.makeText(this, "라이트모드 선택", Toast.LENGTH_SHORT).show();
-
-                //break;
-
-            //case R.id.menu2:
-              //  Toast.makeText(this, "다크모드 선택", Toast.LENGTH_SHORT).show();
-                //break;
-        //}
-        //return super.onOptionsItemSelected(item);
-
-    //}
 
 
 }
