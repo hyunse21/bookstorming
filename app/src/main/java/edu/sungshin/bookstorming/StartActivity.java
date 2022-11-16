@@ -28,39 +28,6 @@ import com.google.firebase.database.FirebaseDatabase;
 public class StartActivity extends AppCompatActivity {
 
 
-    String themeColor;
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.menu_option,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu1:
-                Toast.makeText(this, "라이트모드 선택", Toast.LENGTH_SHORT).show();
-                themeColor = ThemeUtil.LIGHT_MODE;
-                //themeColor = ThemeUtil.modLoad(getApplicationContext());
-                ThemeUtil.applyTheme(themeColor);
-                ThemeUtil.modSave(getApplicationContext(), themeColor);
-                return true;
-
-            case R.id.menu2:
-                Toast.makeText(this, "다크모드 선택", Toast.LENGTH_SHORT).show();
-                themeColor = ThemeUtil.DARK_MODE;
-                //themeColor = ThemeUtil.modLoad(getApplicationContext());
-                ThemeUtil.applyTheme(themeColor);
-                ThemeUtil.modSave(getApplicationContext(), themeColor);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-
-    }
-
     private EditText user_chat, user_edit;
     private Button user_next;
     private ListView chat_list;
