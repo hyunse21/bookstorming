@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
+    private BookAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<item> arrayList;
     private FirebaseDatabase database;
@@ -81,21 +81,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        arrayList = new ArrayList<>();// 책 객체를 담을 어레이 리스트
+        adapter = new BookAdapter();
+
+        database=FirebaseDatabase.getInstance();
+        databaseReference=database.getReference("item");
+
         btn_review=findViewById(R.id.btn_review);
-
-        searchAnimal();
-        setUpList();
-
-
         recyclerView=findViewById(R.id.recyclerVies);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        arrayList=new ArrayList<>();//책 객체를 담을 어레이 리스트
+        recyclerView.setAdapter(adapter);//리사이클러 뷰에 어댑터 연결
 
-        database=FirebaseDatabase.getInstance();
-
-        databaseReference=database.getReference("item");
+        searchAnimal();
 
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -106,55 +105,16 @@ public class MainActivity extends AppCompatActivity {
                     item item = snapshot.getValue(item.class);//북 객체에 데이터 담음
                     arrayList.add(item);//담은 데이터를 배열리스트에 추가
                 }
+                adapter.setItemList(arrayList);
                 adapter.notifyDataSetChanged();//리스트 저장및 새로고침
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Log.e("MainActivity",String.valueOf(databaseError.toException()));
-
             }
         });
-
-        adapter = new BookAdapter(arrayList,this);
-        recyclerView.setAdapter(adapter);//리사이클러 뷰에 어댑터 연결
-
-
     }
-    private void searchAnimal(){
-
-        SearchView searchView=findViewById(R.id.animal_search_view);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                ArrayList<item> filterAnimal=new ArrayList<>();
-                for(int i=0;i<arrayList.size();i++){
-                    item item=arrayList.get(i);
-
-                    if(item.getTitle().toLowerCase().contains(newText.toLowerCase())){
-                        filterAnimal.add(item);
-                    }
-                }
-                BookAdapter adapter=new BookAdapter(filterAnimal,getApplicationContext());
-                recyclerView.setAdapter(adapter);
-                return false;
-            }
-        });
-
-    }
-    private void setUpList(){
-        recyclerView=findViewById(R.id.recyclerVies);
-        BookAdapter adapter= new BookAdapter(arrayList,getApplicationContext());
-        recyclerView.setAdapter(adapter);
-
-    }
-
-
 
 
 
@@ -190,5 +150,32 @@ public class MainActivity extends AppCompatActivity {
                 //  Toast.makeText(getApplicationContext(), "한번더 누르시면 앱이 종료됩니다", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void searchAnimal(){
+        SearchView searchView=findViewById(R.id.animal_search_view);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                ArrayList<item> filterAnimal=new ArrayList<>();
+                for(int i=0;i<arrayList.size();i++){
+                    item item=arrayList.get(i);
+
+                    if(item.getTitle().toLowerCase().contains(newText.toLowerCase())){
+                        filterAnimal.add(item);
+                    }
+                    adapter.notifyDataSetChanged();//리스트 저장및 새로고침
+                }
+                adapter.setItemList(filterAnimal);
+                adapter.notifyDataSetChanged();
+                return false;
+            }
+        });
+
     }
 }

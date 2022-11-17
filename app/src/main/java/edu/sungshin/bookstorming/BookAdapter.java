@@ -17,16 +17,19 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder> {
-
-
     private ArrayList<item> arrayList;
-    private Context context;
+    private Context mContext;
 
+    public BookAdapter() {
+        arrayList = new ArrayList<>();
+    }
 
-    public BookAdapter(ArrayList<item> arrayList, Context context) {
-        super();
-        this.arrayList = arrayList;
-        this.context=context;
+    public void setItemList(ArrayList<item> _arrayList) {
+        if (!arrayList.isEmpty()) {
+            arrayList.clear();
+        }
+
+        arrayList.addAll(_arrayList);
     }
 
 
@@ -34,9 +37,10 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
     @NonNull
     @Override
     public BookAdapter.BookViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item,parent,false);
-        BookViewHolder holder =new BookViewHolder(view);
+        mContext = parent.getContext();
 
+        View view = LayoutInflater.from(mContext).inflate(R.layout.list_item,parent,false);
+        BookViewHolder holder =new BookViewHolder(view);
         return holder;
     }
 
@@ -55,11 +59,11 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
                 String tv_dp=holder.tv_dp.getText().toString();
                 String tv_dt=holder.tv_dt.getText().toString();
                 Intent intent;
-                intent = new Intent(context,StartActivity_review.class);
+                intent = new Intent(mContext,StartActivity_review.class);
                 intent.putExtra("tv_tt",tv_tt);
                 intent.putExtra("tv_dp",tv_dp);
                 intent.putExtra("tv_dt",tv_dt);
-                ((MainActivity)context).startActivity(intent);
+                ((MainActivity)mContext).startActivity(intent);
             }
         });
 
@@ -71,11 +75,11 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
                 String tv_dp=holder.tv_dp.getText().toString();
                 String tv_dt=holder.tv_dt.getText().toString();
                 Intent intent;
-                intent = new Intent(context,DetailActivity.class);
+                intent = new Intent(mContext,DetailActivity.class);
                 intent.putExtra("tv_tt",tv_tt);
                 intent.putExtra("tv_dp",tv_dp);
                 intent.putExtra("tv_dt",tv_dt);
-                ((MainActivity)context).startActivity(intent);
+                ((MainActivity)mContext).startActivity(intent);
 
             }
         });
@@ -105,4 +109,5 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         }
 
     }
+
 }

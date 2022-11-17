@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class StartActivity_review extends AppCompatActivity {
 
-    private EditText user_chat, user_edit;
+    private TextView user_chat, user_edit;
     private Button user_next;
     private ListView chat_list;
     private Intent intent;
@@ -34,8 +35,8 @@ public class StartActivity_review extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_review);
 
-        user_chat = (EditText) findViewById(R.id.user_chat);
-        user_edit = (EditText) findViewById(R.id.user_edit);
+        user_chat = (TextView) findViewById(R.id.user_chat);
+        user_edit = (TextView) findViewById(R.id.user_edit);
         user_next = (Button) findViewById(R.id.user_next);
         chat_list = (ListView) findViewById(R.id.chat_list);
 
