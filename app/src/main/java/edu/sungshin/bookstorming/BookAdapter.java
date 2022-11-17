@@ -51,6 +51,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         holder.tv_tt.setText(arrayList.get(position).getTitle());
         holder.tv_dp.setText(arrayList.get(position).getDescription());
         holder.tv_dt.setText(String.valueOf(arrayList.get(position).getPubDate()));
+        holder.tv_at.setText(arrayList.get(position).getAuthor());
         holder.btn_review.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,11 +59,13 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
                 String tv_tt=holder.tv_tt.getText().toString();
                 String tv_dp=holder.tv_dp.getText().toString();
                 String tv_dt=holder.tv_dt.getText().toString();
+                String tv_at=holder.tv_at.getText().toString();
                 Intent intent;
                 intent = new Intent(mContext,StartActivity_review.class);
                 intent.putExtra("tv_tt",tv_tt);
                 intent.putExtra("tv_dp",tv_dp);
                 intent.putExtra("tv_dt",tv_dt);
+                intent.putExtra("tv_at",tv_at);
                 ((MainActivity)mContext).startActivity(intent);
             }
         });
@@ -74,11 +77,13 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
                 String tv_tt=holder.tv_tt.getText().toString();
                 String tv_dp=holder.tv_dp.getText().toString();
                 String tv_dt=holder.tv_dt.getText().toString();
+                String tv_at=holder.tv_at.getText().toString();
                 Intent intent;
                 intent = new Intent(mContext,DetailActivity.class);
                 intent.putExtra("tv_tt",tv_tt);
                 intent.putExtra("tv_dp",tv_dp);
                 intent.putExtra("tv_dt",tv_dt);
+                intent.putExtra("tv_at",tv_at);
                 ((MainActivity)mContext).startActivity(intent);
 
             }
@@ -96,6 +101,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         TextView tv_tt;
         TextView tv_dp;
         TextView tv_dt;
+        TextView tv_at;
         Button btn_review;
 
         public BookViewHolder(@NonNull View itemView){
@@ -104,6 +110,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
             this.tv_tt=itemView.findViewById(R.id.tv_tt);
             this.tv_dp=itemView.findViewById(R.id.tv_dp);
             this.tv_dt=itemView.findViewById(R.id.tv_dt);
+            this.tv_at=itemView.findViewById(R.id.tv_at);
             this.btn_review=itemView.findViewById(R.id.btn_review);
 
         }
