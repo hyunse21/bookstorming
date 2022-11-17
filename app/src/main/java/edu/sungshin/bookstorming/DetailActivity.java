@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 public class DetailActivity extends AppCompatActivity {
 
-    TextView tv_tt,tv_dp,tv_dt;
-    String title,description,date;
+    TextView tv_tt,tv_dp,tv_dt,tv_at;
+    String title,description,date,author;
     Button btn_reveiw;
 
     @Override
@@ -22,6 +22,7 @@ public class DetailActivity extends AppCompatActivity {
         tv_tt=findViewById(R.id.tv_tt);
         tv_dp=findViewById(R.id.tv_dp);
         tv_dt=findViewById(R.id.tv_dt);
+        tv_at=findViewById(R.id.tv_at);
 
         btn_reveiw=findViewById(R.id.btn_review);
 
@@ -29,10 +30,12 @@ public class DetailActivity extends AppCompatActivity {
         title=intent.getStringExtra("tv_tt");
         description=intent.getStringExtra("tv_dp");
         date=intent.getStringExtra("tv_dt");
+        author=intent.getStringExtra("tv_at");
 
         tv_tt.setText(title);
         tv_dp.setText(description);
         tv_dt.setText(date);
+        tv_at.setText(author);
 
         btn_reveiw.setOnClickListener(new View.OnClickListener() {
             @Override

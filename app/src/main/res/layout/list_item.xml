@@ -8,29 +8,59 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
+        android:layout_height="wrap_content"
+        android:padding="3dp">
         <ImageView
             android:id="@+id/tv_profile"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_margin="5dp"
             android:src="@drawable/ic_launcher_background"/>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:orientation="vertical">
-
-
             <TextView
                 android:id="@+id/tv_tt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="title"
+                android:textSize="20dp"
+                android:textStyle="bold"
                 android:layout_margin="5dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="[저자]"
+                    android:layout_margin="5dp"/>
+                <TextView
+                    android:id="@+id/tv_at"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="author"
+                    android:layout_margin="5dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="[출판연도]"
+                    android:layout_margin="5dp"/>
+                <TextView
+                    android:id="@+id/tv_dt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="pubDate"
+                    android:layout_margin="5dp"/>
+            </LinearLayout>
             <TextView
                 android:id="@+id/tv_dp"
                 android:layout_width="wrap_content"
@@ -39,23 +69,12 @@
                 android:ellipsize="end"
                 android:text="description"
                 android:layout_margin="5dp"/>
-            <TextView
-                android:id="@+id/tv_dt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="pubDate"
-                android:layout_margin="5dp"/>
-
             <Button
                 android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="리뷰쓰기"
                 android:id="@+id/btn_review"/>
-
-
-
-
         </LinearLayout>
     </LinearLayout>
 
