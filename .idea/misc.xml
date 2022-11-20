@@ -21,9 +21,31 @@
         <entry key="..\:/CookAndroid/Project/bookstorming2/app/src/main/res/layout/list_item.xml" value="0.1" />
         <entry key="..\:/CookAndroid/Project/bookstorming2/app/src/main/res/layout/tab_host.xml" value="0.22826086956521738" />
         <entry key="..\:/CookAndroid/Project/bookstorming2/app/src/main/res/menu/menu_option.xml" value="0.25364583333333335" />
+        <entry key="..\:/MP/bookstorming/app/src/main/res/drawable-v24/rounded.xml" value="0.1" />
+        <entry key="..\:/MP/bookstorming/app/src/main/res/drawable-v24/rounded_slight.xml" value="0.1" />
+        <entry key="..\:/MP/bookstorming/app/src/main/res/drawable/coding.xml" value="0.1" />
+        <entry key="..\:/MP/bookstorming/app/src/main/res/drawable/coding_out.xml" value="0.1" />
+        <entry key="..\:/MP/bookstorming/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/MP/bookstorming/app/src/main/res/drawable/title_gradient.xml" value="0.1" />
         <entry key="..\:/MP/bookstorming/app/src/main/res/font/font.xml" value="0.13055555555555556" />
-        <entry key="..\:/MP/bookstorming/app/src/main/res/layout/activity_chat.xml" value="0.1308876811594203" />
+        <entry key="..\:/MP/bookstorming/app/src/main/res/layout/activity_chat.xml" value="0.176" />
+        <entry key="..\:/MP/bookstorming/app/src/main/res/layout/activity_detail.xml" value="0.264" />
+        <entry key="..\:/MP/bookstorming/app/src/main/res/layout/activity_dialog.xml" value="0.2" />
+        <entry key="..\:/MP/bookstorming/app/src/main/res/layout/activity_gallery.xml" value="0.35306553911205074" />
+        <entry key="..\:/MP/bookstorming/app/src/main/res/layout/activity_login.xml" value="0.2" />
+        <entry key="..\:/MP/bookstorming/app/src/main/res/layout/activity_login2.xml" value="0.152" />
+        <entry key="..\:/MP/bookstorming/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/MP/bookstorming/app/src/main/res/layout/activity_real_review.xml" value="0.12082066869300911" />
+        <entry key="..\:/MP/bookstorming/app/src/main/res/layout/activity_register.xml" value="0.12082066869300911" />
+        <entry key="..\:/MP/bookstorming/app/src/main/res/layout/activity_register2.xml" value="0.12082066869300911" />
+        <entry key="..\:/MP/bookstorming/app/src/main/res/layout/activity_search.xml" value="0.12082066869300911" />
+        <entry key="..\:/MP/bookstorming/app/src/main/res/layout/activity_start.xml" value="0.2" />
+        <entry key="..\:/MP/bookstorming/app/src/main/res/layout/activity_start_review.xml" value="0.264" />
+        <entry key="..\:/MP/bookstorming/app/src/main/res/layout/list_item.xml" value="0.12082066869300911" />
+        <entry key="..\:/MP/bookstorming/app/src/main/res/layout/tab_host.xml" value="0.264" />
+        <entry key="..\:/MP/bookstorming/app/src/main/res/layout/toolbar.xml" value="0.1" />
+        <entry key="..\:/MP/bookstorming/app/src/main/res/menu/menu_option.xml" value="0.1" />
+        <entry key="..\:/MP/bookstorming/app/src/main/res/menu/menu_toolbar.xml" value="0.1" />
       </map>
     </option>
   </component>
