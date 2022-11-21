@@ -56,8 +56,10 @@ public class StartActivity extends AppCompatActivity {
         user_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (user_edit.getText().toString().equals("") || user_chat.getText().toString().equals(""))
+                if (user_edit.getText().toString().equals("") || user_chat.getText().toString().equals("")) {
+                    Toast.makeText(getApplicationContext(), "책 제목을 입력해주세요", Toast.LENGTH_SHORT).show();
                     return;
+                }
 
                 Intent intent = new Intent(StartActivity.this, ChatActivity.class);
                 intent.putExtra("chatName", user_chat.getText().toString());

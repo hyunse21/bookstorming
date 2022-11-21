@@ -5,9 +5,10 @@ import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
-public class ThemeUtil {
+public class ThemeUtil extends AppCompatActivity {
     public static final String LIGHT_MODE = "light";
     public static final String DARK_MODE = "dark";
     public static final String DEFAULT_MODE = "default";

@@ -1,9 +1,11 @@
 package edu.sungshin.bookstorming;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -119,6 +121,29 @@ public class ChatActivity_review extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        final Dialog dialog = new Dialog(ChatActivity_review.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.activity_dialog_chat);
+        dialog.show();
+        Button button = (Button)dialog.findViewById(R.id.backbtn);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        Button button1 = (Button)dialog.findViewById(R.id.exitbtn);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
 
             }
         });

@@ -3,6 +3,7 @@ package edu.sungshin.bookstorming;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -39,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
 
+
+    Button btn_review;
+
     private static final String TAG = "MainActivity";
     String themeColor;
 
@@ -72,9 +76,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
-
-    Button btn_review;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -178,4 +179,5 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
 }

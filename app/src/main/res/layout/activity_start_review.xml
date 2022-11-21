@@ -78,7 +78,7 @@
                     android:textSize="12dp"
                     />
 
-                <TextView
+                <EditText
                     android:textColor="#756855"
                     android:id="@+id/user_chat"
                     android:layout_width="200dp"

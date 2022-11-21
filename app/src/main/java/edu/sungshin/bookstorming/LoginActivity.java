@@ -3,6 +3,9 @@ package edu.sungshin.bookstorming;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -26,6 +29,7 @@ import java.util.Arrays;
 public class LoginActivity extends AppCompatActivity {
     private EditText et_id,et_pass;
     private Button btn_login,btn_register,buttonFacebook;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

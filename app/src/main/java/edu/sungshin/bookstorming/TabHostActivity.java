@@ -1,7 +1,9 @@
 package edu.sungshin.bookstorming;
 
 import android.app.TabActivity;
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -10,16 +12,20 @@ import android.widget.TabHost;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 
 @SuppressWarnings("deprecation")
 public class TabHostActivity extends TabActivity {
 
 
+    private BroadcastReceiver mReceiver;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab_host);
+        mReceiver = new broadCastRece();
 
 
 
@@ -62,6 +68,24 @@ public class TabHostActivity extends TabActivity {
 
     }
 
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        // 필터를 정의하여 broadCastRece클래스에 전송
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+        filter.addAction(Intent.ACTION_POWER_CONNECTED);
+        filter.addAction(Intent.ACTION_POWER_DISCONNECTED);
+        registerReceiver(mReceiver, filter);
+    }
+
+    @Override
+    protected void onPause()
+    {
+        super.onPause();
+        unregisterReceiver(mReceiver);
+    }
 
 
 }

@@ -20,7 +20,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class StartActivity_review extends AppCompatActivity {
 
-    private TextView user_chat, user_edit;
+    private EditText user_chat;
+    private TextView user_edit;
     private Button user_next;
     private ListView chat_list;
     private Intent intent;
@@ -35,7 +36,7 @@ public class StartActivity_review extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_review);
 
-        user_chat = (TextView) findViewById(R.id.user_chat);
+        user_chat = (EditText) findViewById(R.id.user_chat);
         user_edit = (TextView) findViewById(R.id.user_edit);
         user_next = (Button) findViewById(R.id.user_next);
         chat_list = (ListView) findViewById(R.id.chat_list);

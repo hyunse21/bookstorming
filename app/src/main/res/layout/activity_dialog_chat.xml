@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--디자인 수정-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/rounded_slight">
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:id="@+id/mian_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:text="채팅방을 나가시겠습니까?"
+        android:textColor="#000000"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+        <android.widget.Button
+            android:layout_weight="1"
+            android:id="@+id/backbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="취소"
+            android:textSize="20dp"
+            android:background="@drawable/rounded_slight"
+            android:backgroundTint="#756855"
+            android:textColor="#fff"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="8dp"/>
+
+        <android.widget.Button
+            android:layout_weight="1"
+            android:id="@+id/exitbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="확인"
+            android:textSize="20dp"
+            android:background="@drawable/rounded_slight"
+            android:backgroundTint="#3f6149"
+            android:textColor="#fff"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="30dp"/>
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
