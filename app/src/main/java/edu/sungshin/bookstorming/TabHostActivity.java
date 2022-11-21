@@ -4,11 +4,13 @@ import android.app.TabActivity;
 import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TabHost;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,6 +22,7 @@ public class TabHostActivity extends TabActivity {
 
 
     private BroadcastReceiver mReceiver;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,20 @@ public class TabHostActivity extends TabActivity {
         TabHost.TabSpec spec;
         Intent intent; //객체
 
+        //커스텀
+        tabHost = (TabHost)findViewById(android.R.id.tabhost);
+        TabHost finalTabHost = tabHost;
+        tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String tabId) {
+                for(int i = 0; i< finalTabHost.getTabWidget().getChildCount(); i++)
+                {
+                    finalTabHost.getTabWidget().getChildAt(i).setBackgroundResource(R.drawable.white);
+                }
+
+                finalTabHost.getTabWidget().getChildAt(finalTabHost.getCurrentTab()).setBackgroundResource(R.drawable.brown);
+                }
+        });
 
 
 
@@ -65,7 +82,6 @@ public class TabHostActivity extends TabActivity {
         tabHost.addTab(spec);
 
         tabHost.setCurrentTab(0); //먼저 열릴 탭을 선택! (2)로 해두면 그룹이 시작 화면!
-
     }
 
     @Override
