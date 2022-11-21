@@ -1,5 +1,6 @@
 package edu.sungshin.bookstorming;
 
+import android.annotation.SuppressLint;
 import android.app.TabActivity;
 import android.content.BroadcastReceiver;
 import android.content.Intent;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +26,7 @@ public class TabHostActivity extends TabActivity {
     private BroadcastReceiver mReceiver;
 
 
+    @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,13 +47,14 @@ public class TabHostActivity extends TabActivity {
         tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
+
                 for(int i = 0; i< finalTabHost.getTabWidget().getChildCount(); i++)
                 {
-                    finalTabHost.getTabWidget().getChildAt(i).setBackgroundResource(R.drawable.white);
+                    finalTabHost.getTabWidget().getChildAt(i).setBackgroundResource(R.color.white);
+                }
+                finalTabHost.getTabWidget().getChildAt(finalTabHost.getCurrentTab()).setBackgroundResource(R.color.brown);
                 }
 
-                finalTabHost.getTabWidget().getChildAt(finalTabHost.getCurrentTab()).setBackgroundResource(R.drawable.brown);
-                }
         });
 
 
