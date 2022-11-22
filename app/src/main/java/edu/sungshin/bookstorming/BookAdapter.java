@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -88,6 +89,22 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
             }
         });
+        holder.tv_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String tv_tt=holder.tv_tt.getText().toString();
+                String tv_dp=holder.tv_dp.getText().toString();
+                String tv_dt=holder.tv_dt.getText().toString();
+                String tv_at=holder.tv_at.getText().toString();
+                Intent intent;
+                intent = new Intent(mContext, DetailActivity.class);
+                intent.putExtra("tv_tt",tv_tt);
+                intent.putExtra("tv_dp",tv_dp);
+                intent.putExtra("tv_dt",tv_dt);
+                intent.putExtra("tv_at",tv_at);
+                ((MainActivity)mContext).startActivity(intent);
+            }
+        });
 
     }
 
@@ -103,6 +120,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         TextView tv_dt;
         TextView tv_at;
         Button btn_review;
+        CheckBox btn_cart;
 
         public BookViewHolder(@NonNull View itemView){
             super(itemView);
@@ -112,6 +130,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
             this.tv_dt=itemView.findViewById(R.id.tv_dt);
             this.tv_at=itemView.findViewById(R.id.tv_at);
             this.btn_review=itemView.findViewById(R.id.btn_review);
+            this.btn_cart=itemView.findViewById(R.id.cart);
 
         }
 

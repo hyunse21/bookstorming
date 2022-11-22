@@ -3,6 +3,8 @@ package edu.sungshin.bookstorming;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -128,6 +130,7 @@ public class ChatActivity extends AppCompatActivity {
     public void onBackPressed() {
         final Dialog dialog = new Dialog(ChatActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.setContentView(R.layout.activity_dialog_chat);
         dialog.show();
         Button button = (Button)dialog.findViewById(R.id.backbtn);

@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -91,8 +93,8 @@ public class MainActivity extends AppCompatActivity {
         btn_review=findViewById(R.id.btn_review);
         recyclerView=findViewById(R.id.recyclerVies);
         recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-        //layoutManager = new GridLayoutManager(this,2);
+        //layoutManager = new LinearLayoutManager(this);
+        layoutManager = new GridLayoutManager(this,2);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);//리사이클러 뷰에 어댑터 연결
 
@@ -124,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         final Dialog dialog = new Dialog(MainActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.setContentView(R.layout.activity_dialog);
         dialog.show();
         Button button = (Button)dialog.findViewById(R.id.backbtn);

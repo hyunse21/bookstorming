@@ -3,19 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="16dp"
+    android:layout_marginLeft="7dp"
+    android:layout_marginRight="27dp"
+    android:layout_marginTop="20dp"
     android:orientation="horizontal">
 
-
     <LinearLayout
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="3dp">
+        android:orientation="vertical"
+        >
+        <CheckBox
+            android:id="@+id/cart"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_gravity="right"
+            android:layout_weight="8"
+            android:background="@drawable/check_box"
+            android:button="@android:color/transparent" />
+
         <ImageView
             android:id="@+id/tv_profile"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_margin="5dp"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
             android:src="@drawable/ic_launcher_background"/>
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,7 +38,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="title"
-                android:textSize="20dp"
                 android:textStyle="bold"
                 android:layout_margin="5dp"/>
             <LinearLayout
@@ -37,25 +47,28 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="[저자]"
-                    android:layout_margin="5dp"/>
+                    android:text="[저자] "
+                    />
                 <TextView
                     android:id="@+id/tv_at"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="author"
-                    android:layout_margin="5dp"/>
+                    />
             </LinearLayout>
             <LinearLayout
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="[출판연도]"
                     android:layout_margin="5dp"/>
                 <TextView
+                    android:visibility="gone"
                     android:id="@+id/tv_dt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -63,19 +76,22 @@
                     android:layout_margin="5dp"/>
             </LinearLayout>
             <TextView
+                android:visibility="gone"
                 android:id="@+id/tv_dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxLines="4"
+                android:maxLines="3"
                 android:ellipsize="end"
                 android:text="description"
-                android:layout_margin="5dp"/>
+                android:layout_margin="3dp"/>
             <Button
                 android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="리뷰쓰기"
                 android:id="@+id/btn_review"/>
+
+
         </LinearLayout>
     </LinearLayout>
 
