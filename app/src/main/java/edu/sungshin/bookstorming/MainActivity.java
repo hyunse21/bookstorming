@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView=findViewById(R.id.recyclerVies);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
+        //layoutManager = new GridLayoutManager(this,2);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);//리사이클러 뷰에 어댑터 연결
 

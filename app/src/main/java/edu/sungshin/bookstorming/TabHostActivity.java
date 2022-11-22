@@ -62,7 +62,8 @@ public class TabHostActivity extends TabActivity {
 //탭에서 액티비티를 사용할 수 있도록 인텐트 생성
         intent = new Intent().setClass(this, MainActivity.class);
         spec = tabHost.newTabSpec("Study"); // 객체를 생성
-        spec.setIndicator("책 검색"); //탭의 이름 설정
+        //spec.setIndicator("책 검색"); //탭의 이름 설정
+        spec.setIndicator("",getResources().getDrawable(R.drawable.size));
         spec.setContent(intent);
         tabHost.addTab(spec);
 
@@ -71,7 +72,8 @@ public class TabHostActivity extends TabActivity {
 //탭에서 액티비티를 사용할 수 있도록 인텐트 생성
         intent = new Intent().setClass(this, StartActivity.class);
         spec = tabHost.newTabSpec("Time"); // 객체를 생성
-        spec.setIndicator("중고서점"); //탭의 이름 설정
+        //spec.setIndicator("중고서점"); //탭의 이름 설정
+        spec.setIndicator("",getResources().getDrawable(R.drawable.size2));
         spec.setContent(intent);
         tabHost.addTab(spec);
 
@@ -81,7 +83,8 @@ public class TabHostActivity extends TabActivity {
 //탭에서 액티비티를 사용할 수 있도록 인텐트 생성
         intent = new Intent().setClass(this, GalleryActivity.class);
         spec = tabHost.newTabSpec("Together_home"); // 객체를 생성
-        spec.setIndicator("나의 책방"); //탭의 이름 설정
+        //spec.setIndicator("나의 책방"); //탭의 이름 설정
+        spec.setIndicator("",getResources().getDrawable(R.drawable.size3));
         spec.setContent(intent);
         tabHost.addTab(spec);
 
