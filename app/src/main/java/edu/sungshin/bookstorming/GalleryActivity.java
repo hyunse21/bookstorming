@@ -3,16 +3,22 @@ package edu.sungshin.bookstorming;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -31,6 +37,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.util.List;
 
 public class GalleryActivity extends AppCompatActivity {
@@ -53,6 +60,10 @@ public class GalleryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
+
+        Gallery gallery=(Gallery) findViewById(R.id.gallery);
+        GalleryActivity.MyGalleryAdapter galAdapter=new GalleryActivity.MyGalleryAdapter(this);
+        gallery.setAdapter(galAdapter);
 
 
         btn_logout=findViewById(R.id.btn_logout);
@@ -77,19 +88,22 @@ public class GalleryActivity extends AppCompatActivity {
         });
 
 
-        ivProfile = findViewById(R.id.ivProfile);
+        ivProfile = findViewById(R.id.ivPoster);
         userID=findViewById(R.id.userID);
         chat_list = (ListView) findViewById(R.id.chat_list);
 
         getUserID= ( (Apptest) getApplication() ).getId();
         userID.setText(getUserID);
 
+        ivProfile.setClipToOutline(true);
+
+
         ivProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_PICK);
-                intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,"image/*");
-                startActivityForResult(intent,GET_GALLERY_IMAGE);
+                //Intent intent = new Intent(Intent.ACTION_PICK);
+                //intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,"image/*");
+                //startActivityForResult(intent,GET_GALLERY_IMAGE);
 
             }
         });
@@ -202,6 +216,46 @@ public class GalleryActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+    public class MyGalleryAdapter extends BaseAdapter {
+        Context context;
+        Integer[] posterID = {R.drawable.img_2, R.drawable.img_3, R.drawable.img_4, R.drawable.img_5};
+
+        public MyGalleryAdapter(Context c) {
+            context = c;
+        }
+
+        public int getCount() {
+            return posterID.length;
+        }
+
+        public Object getItem(int arg0) {
+            return null;
+        }
+
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ImageView imageview = new ImageView(context);
+            imageview.setLayoutParams(new Gallery.LayoutParams(200, 300));
+            imageview.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            imageview.setPadding(5, 5, 5, 5);
+            imageview.setImageResource(posterID[position]);
+
+            final int pos = position;
+            imageview.setOnTouchListener(new View.OnTouchListener() {
+                public boolean onTouch(View v, MotionEvent event) {
+                    ImageView ivPoster = (ImageView) findViewById(R.id.ivPoster);
+                    ivPoster.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                    ivPoster.setImageResource(posterID[pos]);
+                    return false;
+                }
+            });
+
+            return imageview;
+        }
     }
 }
 

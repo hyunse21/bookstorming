@@ -159,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void searchAnimal(){
         SearchView searchView=findViewById(R.id.animal_search_view);
+        searchView.setBackgroundColor(getResources().getColor(R.color.default_new_brown));
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
