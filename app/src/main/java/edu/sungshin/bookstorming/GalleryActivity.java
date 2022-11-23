@@ -163,10 +163,13 @@ public class GalleryActivity extends AppCompatActivity {
         // 리스트 어댑터 생성 및 세팅
         final ArrayAdapter<String> adapter
                 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1);
+        adapter.notifyDataSetChanged();
         chat_list.setAdapter(adapter);
 
+        String userID = ((Apptest)getApplication()).getId();
+
         // 데이터 받아오기 및 어댑터 데이터 추가 및 삭제 등..리스너 관리
-        databaseReference.child("chat").addChildEventListener(new ChildEventListener() {
+        databaseReference.child(userID).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Log.e("LOG", "dataSnapshot.getKey() : " + dataSnapshot.getKey());
@@ -192,7 +195,9 @@ public class GalleryActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
 
             }
+
         });
+        adapter.notifyDataSetChanged();
 
     }
     @Override

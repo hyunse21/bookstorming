@@ -13,12 +13,25 @@
         android:orientation="vertical"
         >
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_margin="5dp"
+                android:layout_weight="8"
+                android:gravity="right"
+                android:textSize="30dp"
+                android:text="찜"
+                android:textColor="@color/default_brown"
+                android:fontFamily="@font/dongle"
+                android:button="@android:color/transparent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cart"
+                />
             <TextView
                 android:id="@+id/tv_tt"
                 android:layout_width="wrap_content"
@@ -28,6 +41,7 @@
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:layout_margin="10dp"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -66,8 +80,6 @@
                 android:layout_height="wrap_content"
                 android:text="description"
                 android:layout_margin="5dp"/>
-
-
 
         </LinearLayout>
 
