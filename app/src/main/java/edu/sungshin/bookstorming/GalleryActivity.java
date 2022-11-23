@@ -224,7 +224,8 @@ public class GalleryActivity extends AppCompatActivity {
     }
     public class MyGalleryAdapter extends BaseAdapter {
         Context context;
-        Integer[] posterID = {R.drawable.img_2, R.drawable.img_3, R.drawable.img_4, R.drawable.img_5};
+        Integer[] posterID = {R.drawable.img_2, R.drawable.img_3, R.drawable.img_4, R.drawable.img_5,R.drawable.img_6,
+        R.drawable.img_7,R.drawable.img_8,R.drawable.img_9};
 
         public MyGalleryAdapter(Context c) {
             context = c;
