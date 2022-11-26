@@ -56,8 +56,8 @@ public class LoginActivity extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String userID=et_id.getText().toString();
-                String userPass=et_pass.getText().toString();
+                String userID=et_id.getText().toString().trim();
+                String userPass=et_pass.getText().toString().trim();
 
                 Response.Listener<String> responseListener= new Response.Listener<String>() {
                     @Override
