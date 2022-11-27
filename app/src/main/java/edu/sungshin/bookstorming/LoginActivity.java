@@ -1,7 +1,9 @@
 package edu.sungshin.bookstorming;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -30,7 +32,7 @@ import java.util.Arrays;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText et_id,et_pass;
-    private Button btn_login,btn_register,buttonFacebook;
+    private Button btn_login,btn_register;
 
 
     @Override
@@ -38,17 +40,16 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        et_id = findViewById(R.id.et_id);
+        et_pass = findViewById(R.id.et_pass);
+        btn_login = findViewById(R.id.btn_login);
+        btn_register = findViewById(R.id.btn_register);
 
-
-        et_id=findViewById(R.id.et_id);
-        et_pass=findViewById(R.id.et_pass);
-        btn_login=findViewById(R.id.btn_login);
-        btn_register=findViewById(R.id.btn_register);
 
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }
         });
@@ -56,28 +57,29 @@ public class LoginActivity extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String userID=et_id.getText().toString().trim();
-                String userPass=et_pass.getText().toString().trim();
 
-                Response.Listener<String> responseListener= new Response.Listener<String>() {
+                String userID = et_id.getText().toString().trim();
+                String userPass = et_pass.getText().toString().trim();
+
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
 
                         try {
-                            JSONObject jsonObject=new JSONObject(response);
-                            boolean success  = jsonObject.getBoolean("success");
-                            if(success){
-                                String userID=jsonObject.getString("userID");
-                                String userPass=jsonObject.getString("userPassword");
-                                Toast.makeText(getApplicationContext(),"로그인에 성공하였습니다.",Toast.LENGTH_SHORT).show();
-                                Intent intent=new Intent(LoginActivity.this,TabHostActivity.class);
-                                intent.putExtra("userID",userID);
-                                intent.putExtra("userPass",userPass);
-                                ((Apptest) getApplication() ).setId(userID);
+                            JSONObject jsonObject = new JSONObject(response);
+                            boolean success = jsonObject.getBoolean("success");
+                            if (success) {
+                                String userID = jsonObject.getString("userID");
+                                String userPass = jsonObject.getString("userPassword");
+                                Toast.makeText(getApplicationContext(), "로그인에 성공하였습니다.", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(LoginActivity.this, TabHostActivity.class);
+                                intent.putExtra("userID", userID);
+                                intent.putExtra("userPass", userPass);
+                                ((Apptest) getApplication()).setId(userID);
                                 startActivity(intent);
                                 finish();
-                            }else{
-                                Toast.makeText(getApplicationContext(),"로그인에 실패하였습니다.",Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(getApplicationContext(), "로그인에 실패하였습니다.", Toast.LENGTH_SHORT).show();
                                 return;
                             }
                         } catch (JSONException e) {
@@ -85,14 +87,14 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 };
-                LoginRequest loginRequest=new LoginRequest(userID,userPass,responseListener);
-                RequestQueue queue= Volley.newRequestQueue(LoginActivity.this);
+                LoginRequest loginRequest = new LoginRequest(userID, userPass, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
                 queue.add(loginRequest);
-
             }
         });
 
     }
+
 
     @Override
     public void onBackPressed() {

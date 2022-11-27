@@ -40,7 +40,8 @@
                 android:background="@drawable/stroke"
                 android:padding="30dp">
 
-                <EditText
+                <TextView
+                    android:textColor="#756855"
                     android:id="@+id/user_edit"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
@@ -54,6 +55,7 @@
                     android:textSize="18dp"/>
 
                 <EditText
+                    android:textColor="#756855"
                     android:id="@+id/user_chat"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"

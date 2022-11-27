@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -83,6 +84,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        getSupportActionBar().setIcon(R.drawable.logosize);
+        getSupportActionBar().setDisplayUseLogoEnabled(true) ;
+        getSupportActionBar().setDisplayShowHomeEnabled(true) ;
+        Drawable drawable = getResources().getDrawable(R.drawable.title_gradient);
+        getSupportActionBar().setBackgroundDrawable(drawable);
+        getSupportActionBar().show();
 
         arrayList = new ArrayList<>();// 책 객체를 담을 어레이 리스트
         adapter = new BookAdapter();
@@ -159,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void searchAnimal(){
         SearchView searchView=findViewById(R.id.animal_search_view);
-        searchView.setBackgroundColor(getResources().getColor(R.color.default_new_brown));
+        searchView.setBackgroundColor(getResources().getColor(R.color.default_new_brown2));
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

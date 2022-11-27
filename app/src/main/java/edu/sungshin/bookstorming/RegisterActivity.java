@@ -101,6 +101,11 @@ public class RegisterActivity extends AppCompatActivity {
                     return;
                 }
 
+                if(userPass.length()<6){
+                    Toast.makeText(getApplicationContext(), "6자리 이상의 비밀번호를 설정하세요", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 if(!userPass.equals(userPasscheck)){
                     Toast.makeText(getApplicationContext(), "비밀번호가 같지 않습니다", Toast.LENGTH_SHORT).show();
                     return;
@@ -118,6 +123,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(),"회원등록에 성공하였습니다.",Toast.LENGTH_SHORT).show();
                                 Intent intent=new Intent(RegisterActivity.this,LoginActivity.class);
                                 startActivity(intent);
+                                finish();
                             }else{
 
                                     Toast.makeText(getApplicationContext(), "회원등록에 실패하였습니다.", Toast.LENGTH_SHORT).show();

@@ -1,8 +1,10 @@
 package edu.sungshin.bookstorming;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -81,8 +83,6 @@ public class GalleryActivity extends AppCompatActivity {
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(i);
 
-                //Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                //startActivity(intent);
             }
 
         });
@@ -263,6 +263,7 @@ public class GalleryActivity extends AppCompatActivity {
             return imageview;
         }
     }
+
 }
 
 

@@ -69,6 +69,7 @@ public class TabHostActivity extends TabActivity {
 
 
 
+
 //탭에서 액티비티를 사용할 수 있도록 인텐트 생성
         intent = new Intent().setClass(this, StartActivity.class);
         spec = tabHost.newTabSpec("Time"); // 객체를 생성
