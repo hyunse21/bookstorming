@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -62,6 +63,13 @@ public class GalleryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
+
+        getSupportActionBar().setIcon(R.drawable.logosize);
+        getSupportActionBar().setDisplayUseLogoEnabled(true) ;
+        getSupportActionBar().setDisplayShowHomeEnabled(true) ;
+        Drawable drawable = getResources().getDrawable(R.drawable.title_gradient);
+        getSupportActionBar().setBackgroundDrawable(drawable);
+        getSupportActionBar().show();
 
         Gallery gallery=(Gallery) findViewById(R.id.gallery);
         GalleryActivity.MyGalleryAdapter galAdapter=new GalleryActivity.MyGalleryAdapter(this);

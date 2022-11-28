@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-
     <application
         android:name=".Apptest"
         android:allowBackup="true"
@@ -15,27 +14,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bookstorming"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".WebbrowserActivity"
+            android:exported="false" />
+
         <receiver
             android:name=".broadCastRece"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.BATTERY_CHANGED"/>
-                <action android:name="android.intent.action.BATTERY_LOW"/>
-                <action android:name="android.intent.action.BATTERY_OKAY"/>
-                <action android:name="android.intent.action.AIRPLANE_MODE"/>
+                <action android:name="android.intent.action.BATTERY_CHANGED" />
+                <action android:name="android.intent.action.BATTERY_LOW" />
+                <action android:name="android.intent.action.BATTERY_OKAY" />
+                <action android:name="android.intent.action.AIRPLANE_MODE" />
                 <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
                 <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
             </intent-filter>
         </receiver>
+
         <activity
             android:name=".DetailActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
         <activity
@@ -55,7 +57,8 @@
             android:name=".GalleryActivity"
             android:exported="true" />
         <activity android:name=".ThemeUtil" />
-        <activity android:name=".FirstActivity"
+        <activity
+            android:name=".FirstActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
@@ -63,9 +66,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
     </application>
 
 </manifest>

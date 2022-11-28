@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -46,6 +47,13 @@ public class StartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+
+        getSupportActionBar().setIcon(R.drawable.logosize);
+        getSupportActionBar().setDisplayUseLogoEnabled(true) ;
+        getSupportActionBar().setDisplayShowHomeEnabled(true) ;
+        Drawable drawable = getResources().getDrawable(R.drawable.title_gradient);
+        getSupportActionBar().setBackgroundDrawable(drawable);
+        getSupportActionBar().show();
 
 
         user_chat = (EditText) findViewById(R.id.user_chat);

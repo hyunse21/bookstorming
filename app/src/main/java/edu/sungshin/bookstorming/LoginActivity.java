@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -39,6 +40,13 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        getSupportActionBar().setIcon(R.drawable.logosize);
+        getSupportActionBar().setDisplayUseLogoEnabled(true) ;
+        getSupportActionBar().setDisplayShowHomeEnabled(true) ;
+        Drawable drawable = getResources().getDrawable(R.drawable.title_gradient);
+        getSupportActionBar().setBackgroundDrawable(drawable);
+        getSupportActionBar().show();
 
         et_id = findViewById(R.id.et_id);
         et_pass = findViewById(R.id.et_pass);

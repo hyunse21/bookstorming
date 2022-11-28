@@ -90,6 +90,7 @@ public class TabHostActivity extends TabActivity {
         tabHost.addTab(spec);
 
         tabHost.setCurrentTab(0); //먼저 열릴 탭을 선택! (2)로 해두면 그룹이 시작 화면!
+
     }
 
     @Override

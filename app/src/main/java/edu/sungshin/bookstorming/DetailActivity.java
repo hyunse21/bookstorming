@@ -3,6 +3,7 @@ package edu.sungshin.bookstorming;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +29,13 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
+        getSupportActionBar().setIcon(R.drawable.logosize);
+        getSupportActionBar().setDisplayUseLogoEnabled(true) ;
+        getSupportActionBar().setDisplayShowHomeEnabled(true) ;
+        Drawable drawable = getResources().getDrawable(R.drawable.title_gradient);
+        getSupportActionBar().setBackgroundDrawable(drawable);
+        getSupportActionBar().show();
 
         tv_tt=findViewById(R.id.tv_tt);
         tv_dp=findViewById(R.id.tv_dp);

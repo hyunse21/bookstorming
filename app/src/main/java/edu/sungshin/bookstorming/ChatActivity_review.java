@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -41,6 +42,13 @@ public class ChatActivity_review extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+
+        getSupportActionBar().setIcon(R.drawable.logosize);
+        getSupportActionBar().setDisplayUseLogoEnabled(true) ;
+        getSupportActionBar().setDisplayShowHomeEnabled(true) ;
+        Drawable drawable = getResources().getDrawable(R.drawable.title_gradient);
+        getSupportActionBar().setBackgroundDrawable(drawable);
+        getSupportActionBar().show();
 
         // 위젯 ID 참조
         chat_view = (ListView) findViewById(R.id.chat_view);
